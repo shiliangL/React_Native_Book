@@ -1,28 +1,28 @@
 {
   "data": [
     {
-      "icon": "danjianbao",
-      "title": "单肩包"
+      "icon": "project",
+      "title": "项目"
     },
     {
-      "icon": "liantiaobao",
-      "title": "链条包"
+      "icon": "project",
+      "title": "项目"
     },
     {
-      "icon": "qianbao",
-      "title": "钱包"
+      "icon": "project",
+      "title": "项目"
     },
     {
-      "icon": "shoutibao",
-      "title": "手提包"
+      "icon": "project",
+      "title": "项目"
     },
     {
-      "icon": "shuangjianbao",
-      "title": "双肩包"
+      "icon": "project",
+      "title": "项目"
     },
     {
-      "icon": "xiekuabao",
-      "title": "斜挎包"
+      "icon": "project",
+      "title": "项目"
     }
   ]
 }

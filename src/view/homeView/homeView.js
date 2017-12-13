@@ -8,32 +8,32 @@ var wMargin = (Util.size.width - cols * boxW) / (cols + 1);
 var hMargin = 25;
 
 export default class HomeView extends Component {
-  _renderData() {
-    let renderData = Data.data;
-    renderData.map((item, index) => {
-      return (
-        <View key={index}>
-          <Text>{item.title}</Text>
-        </View>
-      );
-    });
-  }
   render() {
+    let renderData = Data.data;
     return (
       <ScrollView style={styles.mainView} title={this.props.title}>
-        <Text>测试</Text>
-        <View>{this._renderData()}</View>
+        <View style={styles.container}>
+          {renderData.map((item, index) => {
+            return <View key={index} style={styles.listItem}>
+                <Text>{item.title}</Text>
+              </View>;
+          })}
+        </View>
       </ScrollView>
     );
   }
 }
 const styles = StyleSheet.create({
+  mainView: {
+    marginTop: 30
+  },
   container: {
     flexDirection: "row",
     flexWrap: "wrap"
   },
-  mainView: {
-    marginTop: 30
+  listItem: {
+    width: boxW,
+    height: 100
   },
   navBar: {
     borderBottomWidth: 1,
