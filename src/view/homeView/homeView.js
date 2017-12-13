@@ -9,35 +9,41 @@ import {
 } from "react-native";
 import Data from "./data.json";
 import Util from "../utils/utils";
-let cols = 4;
-let boxW = 100;
-var wMargin = (Util.size.width - cols * boxW) / (cols + 1);
-var hMargin = 25;
-
+import Swiper from "react-native-swiper";
 export default class HomeView extends Component {
+  test() {
+    console.log("测试");
+  }
+
   render() {
     let renderData = Data.data;
-    return (
-      <ScrollView style={styles.mainView} title={this.props.title}>
+    return <ScrollView style={styles.mainView} title={this.props.title}>
+        <View style={stylesSiders.siderBox}>
+          <Swiper style={stylesSiders.wrapper} autoplay={true} autoplayTimeout={3}>
+            <View style={stylesSiders.slide1}>
+              <Text style={stylesSiders.text}>Hello Swiper</Text>
+            </View>
+            <View style={stylesSiders.slide2}>
+              <Text style={stylesSiders.text}>Beautiful</Text>
+            </View>
+            <View style={stylesSiders.slide3}>
+              <Text style={stylesSiders.text}>And simple</Text>
+            </View>
+            <View style={stylesSiders.slide2}>
+              <Text style={stylesSiders.text}>Beautiful4</Text>
+            </View>
+          </Swiper>
+        </View>
         <View style={styles.touchBoxContainer}>
           {renderData.map((item, index) => {
-            return (
-              <TouchableHighlight
-                key={index}
-                style={[
-                  styles.touchBox,
-                  index % 3 == 2 ? styles.touchBox2 : styles.touchBox1
-                ]}
-              >
+            return <TouchableHighlight key={index} style={[styles.touchBox, index % 3 == 2 ? styles.touchBox2 : styles.touchBox1]}>
                 <View style={styles.boxContainer}>
                   <Text>{item.title}</Text>
                 </View>
-              </TouchableHighlight>
-            );
+              </TouchableHighlight>;
           })}
         </View>
-      </ScrollView>
-    );
+      </ScrollView>;
   }
 }
 const styles = StyleSheet.create({
@@ -47,10 +53,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flexWrap: "wrap"
-  },
-  listItem: {
-    width: boxW,
-    height: 100
   },
   navBar: {
     borderBottomWidth: 1,
@@ -138,3 +140,32 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   }
 });
+const stylesSiders = {
+  siderBox: {
+    height: 200
+  },
+  wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#9DD6EB"
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#97CAE5"
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#92BBD9"
+  },
+  text: {
+    color: "#fff",
+    fontSize: 30,
+    fontWeight: "bold"
+  }
+};
