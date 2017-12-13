@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, ScrollView } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableHighlight
+} from "react-native";
 import Data from "./data.json";
 import Util from "../utils/utils";
 let cols = 4;
@@ -12,11 +19,21 @@ export default class HomeView extends Component {
     let renderData = Data.data;
     return (
       <ScrollView style={styles.mainView} title={this.props.title}>
-        <View style={styles.container}>
+        <View style={styles.touchBoxContainer}>
           {renderData.map((item, index) => {
-            return <View key={index} style={styles.listItem}>
-                <Text>{item.title}</Text>
-              </View>;
+            return (
+              <TouchableHighlight
+                key={index}
+                style={[
+                  styles.touchBox,
+                  index % 3 == 2 ? styles.touchBox2 : styles.touchBox1
+                ]}
+              >
+                <View style={styles.boxContainer}>
+                  <Text>{item.title}</Text>
+                </View>
+              </TouchableHighlight>
+            );
           })}
         </View>
       </ScrollView>
