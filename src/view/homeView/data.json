@@ -3,27 +3,33 @@
     {
       "icon": "project",
       "title": "项目",
+      "color":"rgb(59, 89, 152)",
       "tag":"WatchControl"
     },
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "color":"rgb(29, 161, 242)",
     },
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "color":"rgb(220, 78, 65)",
     },
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "color":"rgb(255, 101, 80)",
     },
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "color":"rgb(220, 80, 90)",
     },
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "color":"rgb(210, 70, 110)",
     }
   ]
 }

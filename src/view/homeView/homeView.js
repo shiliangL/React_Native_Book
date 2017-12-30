@@ -51,8 +51,10 @@ export default class HomeView extends Component {
             return <TouchableOpacity onPress={() => {
                   this.goToView(item);
                 }} key={index} style={styles.touchBox}>
-                <View style={styles.boxContainer}>
-                  <Text style={{color:"#fff"}}>{item.title}</Text>
+                <View style={{ alignItems: "center", justifyContent: "center", backgroundColor: item.color, width: Util.size.width / 3, height: Util.size.width / 3 }}>
+                  <Text style={{ color: "#fff" }}>
+                    {item.title}
+                  </Text>
                 </View>
               </TouchableOpacity>;
           })}
@@ -86,7 +88,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3"
   },
   touchBox: {
-    backgroundColor: bg_color,
     width: Util.size.width / 3 - 0.33334,
     height: Util.size.width / 3
   },
