@@ -17,9 +17,14 @@ export default class HomeView extends Component {
 
   render() {
     let renderData = Data.data;
-    return <ScrollView style={styles.mainView} title={this.props.title}>
+    return (
+      <ScrollView style={styles.mainView} title={this.props.title}>
         <View style={stylesSiders.siderBox}>
-          <Swiper style={stylesSiders.wrapper} autoplay={true} autoplayTimeout={3}>
+          <Swiper
+            style={stylesSiders.wrapper}
+            autoplay={true}
+            autoplayTimeout={3}
+          >
             <View style={stylesSiders.slide1}>
               <Text style={stylesSiders.text}>Hello Swiper</Text>
             </View>
@@ -36,19 +41,28 @@ export default class HomeView extends Component {
         </View>
         <View style={styles.touchBoxContainer}>
           {renderData.map((item, index) => {
-            return <TouchableHighlight key={index} style={[styles.touchBox, index % 3 == 2 ? styles.touchBox2 : styles.touchBox1]}>
+            return (
+              <TouchableHighlight
+                key={index}
+                style={[
+                  styles.touchBox,
+                  index % 3 == 2 ? styles.touchBox2 : styles.touchBox1
+                ]}
+              >
                 <View style={styles.boxContainer}>
                   <Text>{item.title}</Text>
                 </View>
-              </TouchableHighlight>;
+              </TouchableHighlight>
+            );
           })}
         </View>
-      </ScrollView>;
+      </ScrollView>
+    );
   }
 }
 const styles = StyleSheet.create({
   mainView: {
-    marginTop: 30
+    // marginTop: 30
   },
   container: {
     flexDirection: "row",
