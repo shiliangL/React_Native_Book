@@ -8,6 +8,9 @@ import Home from "./src/view/homeView/homeView";
 import Girls from "./src/view/girlsView/girlsView";
 import Travel from "./src/view/travelView/travelView"
 import MyZone from "./src/view/myZoneView/myZoneView";
+//day堆栈导航
+import WatchControl from "./src/view/30ViewPage/day-01";
+
 
 //定义tabs底部切换
 const tabsView = TabNavigator(
@@ -85,6 +88,9 @@ const tabsView = TabNavigator(
 const App = StackNavigator({
   Home: {
     screen: tabsView
+  },
+  WatchControl: {
+    screen: WatchControl
   }
 });
 

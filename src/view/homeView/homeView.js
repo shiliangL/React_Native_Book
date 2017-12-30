@@ -5,16 +5,23 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from "react-native";
 import Data from "./data.json";
 import Util from "../utils/utils";
 import Swiper from "react-native-swiper";
+let itemColor = [
+  "rgb(59, 89, 152)",
+  "rgb(29, 161, 242)",
+  "rgb(220, 78, 65)",
+  "rgb(255, 101, 80)"
+];
+let bg_color = itemColor[Math.floor(Math.random() * itemColor.length)];
 export default class HomeView extends Component {
-  test() {
-    console.log("测试");
+  goToView(item){
+    this.props.navigation.navigate(item.tag, { item });
   }
-
   render() {
     let renderData = Data.data;
     return (
@@ -41,19 +48,13 @@ export default class HomeView extends Component {
         </View>
         <View style={styles.touchBoxContainer}>
           {renderData.map((item, index) => {
-            return (
-              <TouchableHighlight
-                key={index}
-                style={[
-                  styles.touchBox,
-                  index % 3 == 2 ? styles.touchBox2 : styles.touchBox1
-                ]}
-              >
+            return <TouchableOpacity onPress={() => {
+                  this.goToView(item);
+                }} key={index} style={styles.touchBox}>
                 <View style={styles.boxContainer}>
-                  <Text>{item.title}</Text>
+                  <Text style={{color:"#fff"}}>{item.title}</Text>
                 </View>
-              </TouchableHighlight>
-            );
+              </TouchableOpacity>;
           })}
         </View>
       </ScrollView>
@@ -61,9 +62,7 @@ export default class HomeView extends Component {
   }
 }
 const styles = StyleSheet.create({
-  mainView: {
-    // marginTop: 30
-  },
+  mainView: {},
   container: {
     flexDirection: "row",
     flexWrap: "wrap"
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3"
   },
   touchBox: {
+    backgroundColor: bg_color,
     width: Util.size.width / 3 - 0.33334,
-    height: Util.size.width / 3,
-    backgroundColor: "#fff"
+    height: Util.size.width / 3
   },
   touchBoxContainer: {
     flexDirection: "row",
@@ -104,19 +103,16 @@ const styles = StyleSheet.create({
   },
   touchBox1: {
     borderBottomWidth: Util.pixel,
-    borderBottomColor: "#ccc",
-    borderRightWidth: Util.pixel,
-    borderRightColor: "#ccc"
+    borderRightWidth: Util.pixel
   },
   touchBox2: {
     borderBottomWidth: Util.pixel,
-    borderBottomColor: "#ccc",
-    borderLeftWidth: Util.pixel,
-    borderLeftColor: "#ccc"
+    borderLeftWidth: Util.pixel
   },
   boxContainer: {
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: bg_color,
     width: Util.size.width / 3,
     height: Util.size.width / 3
   },

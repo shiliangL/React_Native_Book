@@ -2,7 +2,8 @@
   "data": [
     {
       "icon": "project",
-      "title": "项目"
+      "title": "项目",
+      "tag":"WatchControl"
     },
     {
       "icon": "project",
