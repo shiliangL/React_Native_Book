@@ -13,13 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Data from "./data.json";
 import Util from "../utils/utils";
 import Swiper from "react-native-swiper";
-let itemColor = [
-  "rgb(59, 89, 152)",
-  "rgb(29, 161, 242)",
-  "rgb(220, 78, 65)",
-  "rgb(255, 101, 80)"
-];
-let bg_color = itemColor[Math.floor(Math.random() * itemColor.length)];
+ 
 export default class HomeView extends Component {
   goToView(item) {
     this.props.navigation.navigate(item.tag, { item });
@@ -38,13 +32,13 @@ export default class HomeView extends Component {
               <Text style={stylesSiders.text}>Hello Swiper</Text>
             </View>
             <View style={stylesSiders.slide2}>
-              <Text style={stylesSiders.text}>Beautiful</Text>
+              <Text style={stylesSiders.text}>Beautiful App</Text>
             </View>
             <View style={stylesSiders.slide3}>
               <Text style={stylesSiders.text}>And simple</Text>
             </View>
             <View style={stylesSiders.slide2}>
-              <Text style={stylesSiders.text}>Beautiful4</Text>
+              <Text style={stylesSiders.text}>Nice next</Text>
             </View>
           </Swiper>
         </View>
@@ -116,7 +110,6 @@ const styles = StyleSheet.create({
   boxContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: bg_color,
     width: Util.size.width / 3,
     height: Util.size.width / 3
   },

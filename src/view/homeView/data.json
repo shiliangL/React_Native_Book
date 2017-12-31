@@ -4,7 +4,7 @@
       "icon": "ios-stopwatch",
       "title": "秒表",
       "color":"rgb(59, 89, 152)",
-      "tag":"WatchControl"
+      "tag":"StopWatch"
     },
     {
       "icon": "project",
