@@ -8,6 +8,8 @@ import {
   TouchableHighlight,
   TouchableOpacity
 } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 import Data from "./data.json";
 import Util from "../utils/utils";
 import Swiper from "react-native-swiper";
@@ -19,7 +21,7 @@ let itemColor = [
 ];
 let bg_color = itemColor[Math.floor(Math.random() * itemColor.length)];
 export default class HomeView extends Component {
-  goToView(item){
+  goToView(item) {
     this.props.navigation.navigate(item.tag, { item });
   }
   render() {
@@ -52,6 +54,7 @@ export default class HomeView extends Component {
                   this.goToView(item);
                 }} key={index} style={styles.touchBox}>
                 <View style={{ alignItems: "center", justifyContent: "center", backgroundColor: item.color, width: Util.size.width / 3, height: Util.size.width / 3 }}>
+                  <Ionicons name={item.icon} size={45} style={{ color: "#fff" }} />
                   <Text style={{ color: "#fff" }}>
                     {item.title}
                   </Text>
