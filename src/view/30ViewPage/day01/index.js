@@ -123,7 +123,6 @@ class StopWatch extends Component {
       recordCounter: recordCounter,
       record: record
     });
-    console.log(record);
   }
 
   _clearRecord() {
